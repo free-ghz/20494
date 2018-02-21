@@ -17,7 +17,6 @@ i'd like them to be monochrome in the end. 1-bit, black/white only, but it's not
 	* positional dithering - to 1-bit
 	* vignette
 	* "spotscope" which is some kind of arc generator
-	* "debugFilter" which **_must_** be placed last in the queue - or else it'll spam your harddrive! thanks
 
 ### controls
 	

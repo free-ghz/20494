@@ -22,6 +22,8 @@ class PositionalDither implements TileFilter {
       grids = weirdGrids;
     } else if (gridNo == 2) {
       grids = spiralGrids;
+    } else if (gridNo == 3) {
+      grids = unevenGrids;
     } else grids = standardGrids;
     grid = int(random(grids.length));
   }
@@ -120,7 +122,6 @@ class PositionalDither implements TileFilter {
       {2,10,3,11},
       {4,12,5,13},
       {6,14,7,15}}
-
   };
   int[][][] spiralGrids = {
     {{00,01,02,03,04,05,06,07,8},
@@ -132,5 +133,22 @@ class PositionalDither implements TileFilter {
     {26,51,68,67,66,65,64,43,14},
     {25,50,49,48,47,46,45,44,15},
     {24,23,22,21,20,19,18,17,16}}
+  };
+  int [][][] unevenGrids = {
+    
+      {{0,1,2,1,0},
+      {1,2,3,2,1},
+      {2,4,7,4,2},
+      {1,2,3,2,1},
+      {0,1,2,1,0}},
+      
+      {{0,2,0,2},
+      {4,8,4,8},
+      {6,16,10,12},
+      {5,9,5,9}},
+      
+      {{7,0,7},
+      {9,1,9},
+      {7,0,7}}
   };
 }

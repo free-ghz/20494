@@ -6,8 +6,8 @@ boolean running = true;
 void setup() {
   size(204,94);
   noSmooth();
-  //base = new Tile(loadImage("input.png"));
-  base = new Tile(204,94,#ffffff);
+  base = new Tile(loadImage("input.png"));
+  //base = new Tile(204,94,#ffffff);
   fill(#ffffff);
   stroke(#000000);
   colorMode(RGB, 1.0);
@@ -18,14 +18,13 @@ void restart_shit() {
   println("-----");
   stackPlace = -1;
   running = true;
-  base = new Tile(204,94,#ffffff);
   filterStack = new TileFilter[] {
-    new InkBlob(true),
-    new Cellular1D(true,true,0),
-    new Vignette(true),
+    new Spotscope(true),
+    new Cellular1D(false,true,0),
     new Vignette(true),
     new PositionalDither(true,0),
-    new DebugFilter()
+    new Vignette(true),
+    new PositionalDither(true,0)
   };
   
   nextFilter(); // init run
@@ -35,7 +34,7 @@ void draw() {
   display = filterStack[stackPlace].deliver();
   display.drawImage(0,0);
   //display.applyColor(0,0,#000000);
-  if (filterStack[stackPlace].forceNext()) nextFilter();
+  if (stackPlace < filterStack.length-1 && filterStack[stackPlace].forceNext()) nextFilter();
 }
 void mouseDragged() {
   if (mouseButton == LEFT) {

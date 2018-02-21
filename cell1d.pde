@@ -84,7 +84,7 @@ class Cellular1D implements TileFilter {
     if (y >= 47) {
       rule = rules[int(constrain(map(x,0,204,0,rules.length),0,rules.length-1))];
     } else {
-      rule = int(map(x,0,204,0,128))%128;
+      rule = constrain(int(map(x,0,204,0,128))%128,0,128);
     }
   }
   

@@ -12,6 +12,12 @@ class Vignette implements TileFilter {
       weight = random(0,20);
     } 
   }
+  public Vignette(boolean force, int weight) {
+    if (force) {
+      forcenext = true;
+    } 
+    this.weight = weight;
+  }
   public void message(String msg) {
     println("vignette > " + msg);
   }
